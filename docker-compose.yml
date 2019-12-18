@@ -2,10 +2,23 @@ version: '3.1'
 services:
   web:
     build: .
+    image: 127.0.0.1:5000/a4_web
     ports:
       - "8080:8080"
     secrets:                    # secrets block only for 'web' service
       - cookie_secret
+      - admin_secret
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
+        reservations:
+          cpus: '0.25'
+          memory: 20M
 secrets:
   cookie_secret:
     file: cookie_secret.txt
+  admin_secret:
+    file: admin_secret.txt
+

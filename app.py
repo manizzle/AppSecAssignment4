@@ -53,8 +53,14 @@ class Registration(db.Model):
 
 def setup():
     db.create_all()
-    reg = Registration(username="admin", password=hashlib.sha256("Administrator@1".encode("utf-8")).hexdigest(), twofa="12345678901")
-    db.session.add(reg)
+    with open("/run/secrets/admin_secret") as fp:
+        passw = fp.read()
+    row = Registration.query.filter_by(username="admin").first()
+    if not row:
+        reg = Registration(username="admin", password=hashlib.sha256(passw.encode("utf-8")).hexdigest(), twofa="12345678901")
+        db.session.add(reg)
+    else:
+        row.password = hashlib.sha256(passw.encode("utf-8")).hexdigest()
     db.session.commit()
 
 setup()
