@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<form method = "POST">
+  Text to Spellcheck:<br>
+  <input type="hidden" name="csrf-token" value={{ token }}>
+  <input id="inputtext" type="text" name="inputtext"><br>
+  <input type = "submit" value = "submit" />
+</form>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 id="numqueries"> {{ count }}</textarea>
+{% for item in list_of_items %}
+<a id="query{{item}}" href="./history/query{{item}}">Query #{{item}}</span><br>
+{% endfor %}
+{% endblock %}

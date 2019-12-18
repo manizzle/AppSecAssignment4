@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<form method = "POST">
+  Username:<br>
+  <input id="uname" type="text" name="uname"><br>
+    Password:<br>
+  <input id="pword" type="text" name="pword"><br>
+    2-Factor Phonenumber:<br>
+  <input id="2fa" type="text" name="2fa"><br>
+  <input type = "submit" value = "submit" />
+</form>
+{% endblock %}

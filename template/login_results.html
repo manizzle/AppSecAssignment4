@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<ul>
+{% for item in list_of_items %}
+<li id="login{{item[0]}}">
+	<h3 id="login{{item[0]}}_time"> {{item[1]}} </h3>
+	<h3 id="logout{{item[0]}}_time"> {{item[2]}} </h3>
+	</span>
+</li>
+{% endfor %}
+</ul>
+{% endblock %}
