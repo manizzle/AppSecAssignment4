@@ -15,11 +15,11 @@ import time
 from flask_sqlalchemy import SQLAlchemy
 import datetime
 
-secret = "sup3rs3cr3t"
+with open("/run/secrets/cookie_secret") as fp:
+    secret = fp.read()
 
 user_login = {}
 csrf_tok = []
-
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///local.db'
 db = SQLAlchemy(app)

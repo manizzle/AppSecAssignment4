@@ -1,6 +1,11 @@
-version: '3'
+version: '3.1'
 services:
   web:
     build: .
     ports:
       - "8080:8080"
+    secrets:                    # secrets block only for 'web' service
+      - cookie_secret
+secrets:
+  cookie_secret:
+    file: cookie_secret.txt
